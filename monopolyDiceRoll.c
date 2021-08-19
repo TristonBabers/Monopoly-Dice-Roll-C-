@@ -20,7 +20,7 @@ void displayJail();
 void displayDice(short D1, short D2);
 short rollDice(void);
 
-/*o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o[Main]o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o*/
+/*o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o[Main]0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o*/
 int main()
 {
     // Variables:
@@ -93,13 +93,50 @@ void displayJail() {
 
 void displayDice(short D1, short D2) {
     // Variables:
-    //TODO: double Array dice
+    string* dieOnePointer;
+    string* dieTwoPointer;
+    string[] oneDie = {
+        "|           |",
+        "|     *     |",
+        "|           |",
+    }
+    string[] twoDie = {
+        "|  *        |",
+        "|           |",
+        "|        *  |",
+    }
+    string[] threeDie = {
+        "|  *        |",
+        "|     *     |",
+        "|        *  |",
+    }
+    string[] fourDie = {
+        "|  *     *  |",
+        "|           |",
+        "|  *     *  |",
+    }
+    string[] fiveDie = {
+        "|  *     *  |",
+        "|           |",
+        "|  *     *  |",
+    }
+    string[] sixDie = {
+        "|  *  *  *  |",
+        "|           |",
+        "|  *  *  *  |",
+    }
 
+    // Assign Die Strings to Pointers:
+    switch
 
     // Start:
     printf("            +------------+        +------------+\n");
 
-    //TODO: Total
+    for (int i = 0; i < 3; ++i) {
+        printf("            ");
+        printf("%s", diePointer[i]);
+
+    }
 
     // End:
     printf("            +------------+        +------------+\n\n\n");
