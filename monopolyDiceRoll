@@ -1,0 +1,108 @@
+/**
+    File Name: monopolyDiceRoll
+
+    Author: Triston Babers
+    Email: triston.babers.official@gmail.com
+*/
+
+// Imports:
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Constants:
+#define NUM_DICE 2
+#define DIE_SIDES 6
+#define DOUBLE_LIMIT 3
+
+// Functions:
+void displayJail()
+void displayDice(short D1, short D2);
+short rollDice(void)
+
+/*o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o[Main]o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o*/
+int main()
+{
+    // Variables:
+    short dice1;
+    short dice2;
+    short total;
+    short doubleCounter;
+    char rollAgain;
+
+    // Game Start:
+    printf(" Welcome to Monopoly Dice Roll! \n\n");
+
+    // Dice Loop:
+    do {
+        // Greeting:
+        printf(" Press Enter To Roll %d Dice!\n", NUM_DICE);
+        scanf("%s");
+        fflush(stdin);
+
+        // Roll Dice:
+        dice1 = rollDice();
+        dice2 = rollDice();
+
+        // Display Dice:
+        total += dice1 + dice2;
+        displayDice(dice1, dice2);
+        printf("\n     [Total]: %d\n", total)
+
+        // Doubles:
+        if (dice1 == dice2) {
+            if (doubleCounter >= DOUBLE_LIMIT) {
+                printf(" Doubles! Lucky!!! Press Enter for your next roll!\n",
+                   NUM_DICE);
+                doubleCounter += 1
+                scanf("%s");
+                fflush(stdin);
+                rollAgain = 'Y';
+            } else {
+                printf(" Oh No! You rolled too many doubles! Go to Jail!\n\n");
+                displayJail();
+            }
+        } else if {
+            // Re-Prompt:
+            doubleCounter = 0
+            total = 0;
+            printf(" Roll Again? (Y/N)\n");
+            scanf("%c", &rollAgain);
+            fflush(stdin);
+        } while(rollAgain == 'Y' || rollAgain == 'y');
+}
+
+/*o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o[Functions]o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o*/
+
+void displayJail() {
+    printf("        ┏=============┓ \n");
+    printf("        | | | | | | | | \n");
+    printf("        |=|=|=|=|=|=|=| \n");
+    printf("        | | | | | | | | \n");
+    printf("        |=|=|=|=|=|=|=| \n");
+    printf("        | | | | | | | | \n");
+    printf("        ┗=============┛ \n");
+}
+
+void displayDice(short D1, short D2) {
+    // Variables:
+    //TODO: double Array dice
+
+
+    // Start:
+    printf("            ┏------------┓        ┏------------┓\n");
+
+    //TODO: Total
+
+    // End:
+    printf("            ┗------------┛        ┗------------┛\n\n\n");
+}
+
+short rollDice(void) {
+    // Variables:
+    short randomNum;
+
+    // Return Random Number Between 1-6:
+    randomNum = (rand() % (short)DIE_SIDES) + 1;
+    return randomNum;
+}
