@@ -9,6 +9,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <conio.h>
+#include <string.h>
+;
 
 // Constants:
 #define NUM_DICE 2
@@ -93,49 +96,46 @@ void displayJail() {
 
 void displayDice(short D1, short D2) {
     // Variables:
-    string* dieOnePointer;
-    string* dieTwoPointer;
-    string[] oneDie = {
+    std::string[,] diePointer = new std::string[3,6] {
         "|           |",
         "|     *     |",
         "|           |",
     }
-    string[] twoDie = {
+    {
         "|  *        |",
         "|           |",
         "|        *  |",
     }
-    string[] threeDie = {
+    {
         "|  *        |",
         "|     *     |",
         "|        *  |",
     }
-    string[] fourDie = {
+    {
         "|  *     *  |",
         "|           |",
         "|  *     *  |",
     }
-    string[] fiveDie = {
+    {
         "|  *     *  |",
         "|           |",
         "|  *     *  |",
     }
-    string[] sixDie = {
+    {
         "|  *  *  *  |",
         "|           |",
         "|  *  *  *  |",
     }
-
-    // Assign Die Strings to Pointers:
-    switch
 
     // Start:
     printf("            +------------+        +------------+\n");
 
+    // Print Die Faces:
     for (int i = 0; i < 3; ++i) {
         printf("            ");
-        printf("%s", diePointer[i]);
-
+        printf("%s", diePointer[i][d1]);
+        printf("        ");
+        printf("%s", diePointer[i][d2]);
     }
 
     // End:
