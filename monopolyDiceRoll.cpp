@@ -1,5 +1,5 @@
 /**
-    File Name: monopolyDiceRoll
+    File Name: monopolyDiceRoll.cpp
 
     Author: Triston Babers
     Email: triston.babers.official@gmail.com
@@ -10,13 +10,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <conio.h>
-#include <string.h>
-;
+#include <iostream>
+
 
 // Constants:
 #define NUM_DICE 2
 #define DIE_SIDES 6
-#define DOUBLE_LIMIT 3
+#define DOUBLE_LIMIT 2
 
 // Functions:
 void displayJail();
@@ -38,16 +38,12 @@ int main()
 
     // Game Start:
     printf(" Welcome to Monopoly Dice Roll! \n\n");
+    printf(" Press ANY KEY To Roll %d Dice!\n", NUM_DICE);
+    getch();
+    fflush(stdin);
 
     // Dice Loop:
     do {
-        // Greeting:
-        if (doubleCounter == 0) {
-        printf(" Press ENTER To Roll %d Dice!\n", NUM_DICE);
-        getch();
-        fflush(stdin);
-        }
-
         // Roll Dice:
         dice1 = rollDice();
         dice2 = rollDice();
@@ -60,7 +56,7 @@ int main()
         // Doubles:
         if (dice1 == dice2) {
             if (doubleCounter < DOUBLE_LIMIT) {
-                printf(" Doubles! Lucky!!! Press ENTER for your free roll!\n",
+                printf(" Doubles! Lucky!!! Press ANY KEY for your free roll!\n",
                    NUM_DICE);
                 doubleCounter += 1;
                 getch();
@@ -69,6 +65,11 @@ int main()
             } else {
                 printf(" Oh No! You rolled too many doubles! Go to Jail!\n\n");
                 displayJail();
+                doubleCounter = 0;
+                total = 0;
+                printf("\n Roll Again? (Y/N)\n");
+                scanf("%c", &rollAgain);
+                fflush(stdin);
             }
         } else {
             // Re-Prompt:
@@ -96,50 +97,52 @@ void displayJail() {
 
 void displayDice(short D1, short D2) {
     // Variables:
-    std::string[,] diePointer = new std::string[3,6] {
+    char diePointer[6][3][14] = {{
         "|           |",
         "|     *     |",
         "|           |",
-    }
+    },
     {
         "|  *        |",
         "|           |",
         "|        *  |",
-    }
+    },
     {
         "|  *        |",
         "|     *     |",
         "|        *  |",
-    }
+    },
     {
         "|  *     *  |",
         "|           |",
         "|  *     *  |",
-    }
+    },
     {
         "|  *     *  |",
-        "|           |",
+        "|     *     |",
         "|  *     *  |",
-    }
+    },
     {
         "|  *  *  *  |",
         "|           |",
         "|  *  *  *  |",
-    }
+    }};
 
     // Start:
-    printf("            +------------+        +------------+\n");
+    printf("            +-----------+        +-----------+\n");
 
     // Print Die Faces:
+    /* One is subtracted from both D1 and D2 so they fit within the array
+     * bounds of 0-5 */
     for (int i = 0; i < 3; ++i) {
         printf("            ");
-        printf("%s", diePointer[i][d1]);
+        printf("%s", diePointer[(int)D1-1][i]);
         printf("        ");
-        printf("%s", diePointer[i][d2]);
+        printf("%s\n", diePointer[(int)D2-1][i]);
     }
 
     // End:
-    printf("            +------------+        +------------+\n\n\n");
+    printf("            +-----------+        +-----------+\n");
 }
 
 short rollDice(void) {
