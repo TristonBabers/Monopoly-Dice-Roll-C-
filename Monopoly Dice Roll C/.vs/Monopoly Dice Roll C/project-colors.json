@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a516b45e-0ae9-411f-b534-18bcaff9327f": {
+      "ProjectGuid": "a516b45e-0ae9-411f-b534-18bcaff9327f",
+      "DisplayName": "Monopoly Dice Roll C",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
