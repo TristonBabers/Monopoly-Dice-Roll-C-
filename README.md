@@ -4,7 +4,8 @@
 This project aims to emulate the dice system of Hasbro's Monopoly. It rolls 2 dice, and will grant an extra roll (up to 3 times) if doubles are present. Currently the only display functionality is terminal based, with terminal art to represent the faces of the dice.
 
 ## Example Screenshot
-![uh... is it working?](https://github.com/TristonBabers/Monopoly-Dice-Roll-C-/main/ExampleScreenShot.png?raw=true)
+
+![uh... is it working?](https://github.com/TristonBabers/Monopoly-Dice-Roll-C-/blob/main/ExampleScreenShot.PNG?raw=true)
 
 ### Requirements
 
@@ -12,30 +13,28 @@ Must be on Windows, or using a program that allows you to run C programs in a te
 
 ### Installation and Running
 
-Here's how you can run the project on your local machine!
+Here's a step-by-step guide on how you can run the project on your local machine!
 
-Step 1: Git Clone the project and save the contents to your local machine.
+**Step 1:** Git Clone the project and save the contents to your local machine.
 
-    Give the example
+**Step 2:** Open a terminal window and navigate to the location of the .exe file.
 
-Step 2: To run the project access the exe file
+**Step 3:** Run the exe file by typing this in your terminal window:
+```
+monopolyDiceRoll.exe
+```
 
-    until finished
+**Step 3:** _Done!_ The program should now be running in your terminal window if everything is working properly. 🤞
 
-End with an example of getting some data out of the system or using it
-for a little demo
+### Usage
+
+While the program is running it will continually ask you if you want to continue to run the program and roll more dice, which you can do by typing "Y". After each dice roll is completed it will print the total at the bottom in addition to the images, for enhanced readability. To exit the program simply type "N".
 
 ## Version Support
   - Code Blocks IDE
   - ~~Windows Terminal~~ [Planned]
   - ~~Visual Studio 2022~~ [Planned]
 
-## Authors
+## Author
 
   - **Triston Babers** - *Author*
-
-## Acknowledgments
-
-  - Hat tip to anyone whose code is used
-  - Inspiration
-  - etc
